@@ -88,4 +88,18 @@ exports.deleteStudent = function (req, res) {
 		}
 	);
 };
+
+// Show course group.
+exports.showGroupCourse = function (req, res) {
+	connection.query(
+		"SELECT students.id_student, students.npm, students.name, students.study, course.course, course.sks FROM krs JOIN course JOIN students WHERE krs.id_course = course.id_course AND krs.id_student = students.id_student ORDER BY students.id_student",
+		function (error, rows, fields) {
+			if (error) {
+				console.log(error);
+			} else {
+				response.oknested(rows, res);
+			}
+		}
+	);
+};
 // Delete all Students from the database.

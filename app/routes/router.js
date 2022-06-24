@@ -14,4 +14,6 @@ module.exports = function (app) {
 	app.route("/update").put(myJson.updateStudent);
 
 	app.route("/delete").delete(myJson.deleteStudent);
+
+	app.route("/showCourse").get(myJson.showGroupCourse);
 };
